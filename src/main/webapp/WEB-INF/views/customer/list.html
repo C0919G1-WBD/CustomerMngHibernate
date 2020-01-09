@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List</title>
+</head>
+<body>
+<a th:href="@{/add}">Create new customer</a>
+<table cellspacing="30px">
+    <tr>
+        <th>Id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.getId()}"></td>
+        <td th:text="${customer.getFirstName()}"></td>
+        <td th:text="${customer.getLastName()}"></td>
+        <td><a th:href="@{/update/__${customer.getId()}__}">Edit</a></td>
+        <td><a th:href="@{/delete/__${customer.getId()}__}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
